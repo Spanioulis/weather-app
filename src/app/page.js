@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import axios from 'axios';
 import Image from 'next/image';
-import Weather from '@/components/Weather';
+import { Weather, Spinner } from '@/components';
 
 export default function Home() {
    const [city, setCity] = useState('');
@@ -55,13 +55,19 @@ export default function Home() {
                      onChange={handleSearch}
                   />
                   <button onClick={fetchWeather}>
-                     <BsSearch color="rgb(229 231 235)" size={25} />
+                     <BsSearch color="#E5E7EB" size={25} />
                   </button>
                </form>
             </div>
 
             {/* Clima (dashboard) */}
-            <div className="relative z-10 m-auto flex max-w-[800px]">{weather?.main && <Weather data={weather} />}</div>
+            {loading ? (
+               <Spinner />
+            ) : (
+               <div className="relative z-10 m-auto flex max-w-[800px]">
+                  {weather?.main && <Weather data={weather} />}
+               </div>
+            )}
 
             {/* Otro */}
          </div>
