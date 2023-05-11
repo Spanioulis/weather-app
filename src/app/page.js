@@ -41,9 +41,9 @@ export default function Home() {
             />
          </div>
 
-         {/* Búsqueda */}
-         <div className="flex h-screen flex-col justify-between">
-            <div className="relative z-10 m-auto flex max-w-[500px]">
+         <div className="flex h-screen flex-col">
+            {/* Búsqueda */}
+            <div className="relative z-10 m-auto flex max-w-[600px] pt-8">
                <form
                   onSubmit={fetchWeather}
                   className="m-auto flex w-full items-center justify-between rounded-md bg-black/40 p-3"
@@ -60,16 +60,14 @@ export default function Home() {
                </form>
             </div>
 
-            {/* Clima (dashboard) */}
+            {/* Dashboard */}
             {loading ? (
                <Spinner />
             ) : (
-               <div className="relative z-10 m-auto flex max-w-[800px]">
+               <div className="relative z-10 m-auto flex h-[90vh] w-full max-w-[400px] flex-col justify-between p-4">
                   {weather?.main && <Weather data={weather} />}
                </div>
             )}
-
-            {/* Otro */}
          </div>
       </div>
    );
