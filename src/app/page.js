@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
+import { BsSearch } from 'react-icons/bs';
 
 export default function Home() {
    const [city, setCity] = useState('');
@@ -33,8 +34,18 @@ export default function Home() {
                fill
             />
          </div>
-         <div className="relative z-10 flex h-full flex-col items-center justify-center bg-black/30">
-            <h1 className="text-2xl font-bold text-gray-200">Background Image</h1>
+         {/* Búsqueda */}
+         <div className="relative z-10 m-auto flex w-full max-w-[500px] items-center justify-between  pt-4">
+            <form className="m-auto flex w-full items-center justify-between rounded-md bg-black/40 p-3">
+               <input
+                  type="text"
+                  placeholder="Buscar ciudad"
+                  className="h-8 w-full rounded-md border-none bg-transparent pl-3 text-2xl text-gray-200 placeholder:text-gray-200 focus:outline-none"
+               />
+               <button onClick={fetchWeather}>
+                  <BsSearch color="text-gray-200" size={25} />
+               </button>
+            </form>
          </div>
       </div>
    );
