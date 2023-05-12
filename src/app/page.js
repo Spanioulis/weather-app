@@ -11,7 +11,7 @@ export default function Home() {
    const [weather, setWeather] = useState({});
    const [loading, setLoading] = useState(false);
 
-   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
+   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&lang=es`;
 
    const fetchWeather = (e) => {
       e.preventDefault();
@@ -23,12 +23,6 @@ export default function Home() {
 
       setCity('');
       setLoading(false);
-   };
-
-   const handleSearch = (e) => {
-      if (e.target.value !== '') {
-         return setCity(e.target.value);
-      }
    };
 
    return (
@@ -52,7 +46,7 @@ export default function Home() {
                      type="text"
                      placeholder="Buscar ciudad"
                      className="h-8 w-full rounded-md border-none bg-transparent pl-3 text-2xl text-gray-200 placeholder:text-gray-200 focus:outline-none"
-                     onChange={handleSearch}
+                     onChange={(e) => setCity(e.target.value)}
                   />
                   <button onClick={fetchWeather}>
                      <BsSearch color="#E5E7EB" size={25} />
