@@ -24,30 +24,57 @@ export function Weather({ data }) {
          </div>
 
          {/* Dashboard (inferior) */}
-         <div className="mt-36 flex flex-col items-center gap-4 rounded-md bg-black/50 p-4">
-            <p className="text-gray-400">Clima en {data.name}</p>
+         <div className="mt-24 flex flex-col items-center gap-4 rounded-md bg-black/50 p-4">
+            {/* Lugar información */}
+            <p className="text-2xl text-gray-400">Clima en {data.name}</p>
+            {/* Temperatura mínima & máxima */}
             <div className="flex flex-row gap-8">
                <div>
                   <p>
-                     Min: {data.main.temp_min.toFixed(0)}
-                     {'\u00b0'}
+                     Mín:{' '}
+                     <span className="text-xl font-semibold">
+                        {data.main.temp_min.toFixed(0)}
+                        {'\u00b0'}
+                     </span>
                   </p>
                </div>
                <div>
                   <p>
-                     Max: {data.main.temp_max.toFixed(0)}
-                     {'\u00b0'}
+                     Max:{' '}
+                     <span className="text-xl font-semibold">
+                        {data.main.temp_max.toFixed(0)}
+                        {'\u00b0'}
+                     </span>
                   </p>
                </div>
             </div>
+            {/* Humedad & viento */}
             <div className="flex flex-row gap-4">
                <div>
-                  <p>Humedad: {data.main.humidity}%</p>
+                  <p>
+                     Humedad: <span className="text-xl font-semibold">{data.main.humidity}%</span>
+                  </p>
                </div>
                <div>
-                  <p>Viento: {data.wind.speed.toFixed(0)}m/s</p>
+                  <p>
+                     Viento: <span className="text-xl font-semibold">{data.wind.speed.toFixed(0)}m/s</span>
+                  </p>
                </div>
             </div>
+            {/* Amanecer & atardecer */}
+            <div className="flex flex-row gap-4">
+               <div>
+                  <p>
+                     Amanecer: <span className="text-xl font-semibold">{data.sys.sunrise}%</span>
+                  </p>
+               </div>
+               <div>
+                  <p>
+                     Atarceder: <span className="text-xl font-semibold">{data.sys.sunset}</span>
+                  </p>
+               </div>
+            </div>
+            {/* Metros sobre nivel del mar */}
             <div className="flex flex-row gap-4">
                <div>{data.main.sea_level && <p>Nivel del mar: {data.main.sea_level}m</p>}</div>
             </div>
