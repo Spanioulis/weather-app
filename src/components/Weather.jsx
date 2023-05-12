@@ -1,14 +1,12 @@
 import Image from 'next/image';
 
 export function Weather({ data }) {
-   console.log('data:', data);
-
-   // ✅ get hh:mm:ss string
+   // ✅ get hh:mm string
    const sunrise = new Date((data.sys.sunrise + data.timezone) * 1000).toISOString().slice(11, 16);
    const sunset = new Date((data.sys.sunset + data.timezone) * 1000).toISOString().slice(11, 16);
 
    return (
-      <div className="relative flex flex-col justify-between pt-12 text-gray-200">
+      <div className="relative flex flex-col justify-between pt-8 text-gray-200">
          {/* Dashboard (superior) */}
          <div className="flex flex-row justify-between">
             <div className="flex flex-col items-center">
@@ -18,7 +16,9 @@ export function Weather({ data }) {
                   width="100"
                   height="100"
                />
-               <p className="text-2xl">{data.weather[0].main}</p>
+               <p className="text-center text-2xl">{`${data.weather[0].description
+                  .slice(0, 1)
+                  .toUpperCase()}${data.weather[0].description.slice(1)}`}</p>
             </div>
             <div>
                <p className="text-9xl">

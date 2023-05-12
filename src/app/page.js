@@ -37,7 +37,7 @@ export default function Home() {
 
          <div className="flex h-screen flex-col">
             {/* Búsqueda */}
-            <div className="relative z-10 m-auto flex max-w-[600px] pt-8">
+            <div className="relative z-10 m-auto flex max-w-[700px] pt-8">
                <form
                   onSubmit={fetchWeather}
                   className="m-auto flex w-full items-center justify-between rounded-md bg-black/40 p-3"
