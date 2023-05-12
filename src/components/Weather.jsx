@@ -9,14 +9,14 @@ export function Weather({ data }) {
       <div className="relative flex flex-col justify-between pt-8 text-gray-200">
          {/* Dashboard (superior) */}
          <div className="flex flex-row justify-between">
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col">
                <Image
                   src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
                   alt="/"
-                  width="100"
-                  height="100"
+                  width="85"
+                  height="85"
                />
-               <p className="text-center text-2xl">{`${data.weather[0].description
+               <p className="pl-2 text-center text-2xl">{`${data.weather[0].description
                   .slice(0, 1)
                   .toUpperCase()}${data.weather[0].description.slice(1)}`}</p>
             </div>
@@ -29,7 +29,7 @@ export function Weather({ data }) {
          </div>
 
          {/* Dashboard (inferior) */}
-         <div className="mt-24 flex flex-col items-center gap-4 rounded-md bg-black/50 p-4">
+         <div className="mt-[100px] flex flex-col items-center gap-4 rounded-md bg-black/50 p-4">
             {/* Lugar información */}
             <p className="text-2xl text-gray-400">Clima en {data.name}</p>
             {/* Temperatura mínima & máxima */}
