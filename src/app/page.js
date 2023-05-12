@@ -58,7 +58,7 @@ export default function Home() {
             {loading ? (
                <Spinner />
             ) : (
-               <div className="relative z-10 m-auto flex h-[90vh] w-full max-w-[400px] flex-col justify-between p-4">
+               <div className="relative z-10 m-auto flex h-[90vh] w-full max-w-[400px] flex-col justify-between">
                   {weather?.main && <Weather data={weather} />}
                </div>
             )}
