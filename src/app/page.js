@@ -28,11 +28,13 @@ export default function Home() {
    return (
       <div className="relative h-screen">
          <div className="absolute inset-0">
-            <Image
+            {/* <Image
                src="https://images.unsplash.com/photo-1493243350443-9e3048ce7288?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1640&q=80"
                alt="Nubes"
                fill
-            />
+            /> */}
+
+            <Image src="/assets/valley.png" alt="Fondo prado_árbol" fill style={{ objectFit: 'cover' }} />
          </div>
 
          <div className="flex h-screen flex-col">
@@ -58,7 +60,7 @@ export default function Home() {
             {loading ? (
                <Spinner />
             ) : (
-               <div className="relative z-10 m-auto flex h-[90vh] w-full max-w-[400px] flex-col justify-between">
+               <div className="relative z-10 m-auto mt-[75px] flex h-[90vh] w-full max-w-[400px] flex-col justify-between">
                   {weather?.main && <Weather data={weather} />}
                </div>
             )}

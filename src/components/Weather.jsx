@@ -29,7 +29,7 @@ export function Weather({ data }) {
          </div>
 
          {/* Dashboard (inferior) */}
-         <div className="mt-[100px] flex flex-col items-center gap-4 rounded-md bg-black/50 p-4">
+         <div className="mt-[50px] flex flex-col items-center gap-4 rounded-md bg-black/50 p-4">
             {/* Lugar información */}
             <p className="text-2xl text-gray-400">Clima en {data.name}</p>
             {/* Temperatura mínima & máxima */}
